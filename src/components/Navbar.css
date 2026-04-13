@@ -95,6 +95,7 @@ nav.scrolled {
   color: var(--gold2); padding: 8px 18px;
   border: 1px solid var(--gold-ln2); font-weight: 600;
   background: var(--gold-lt);
+  border-radius: 6px;
   flex-shrink: 0;
 }
 .dot {
@@ -114,10 +115,16 @@ nav.scrolled {
 }
 
 @media(max-width: 600px) {
-  .nv { padding-left: 20px; padding-right: 20px; height: 70px; }
+  .nv { padding-left: 20px; padding-right: 20px; height: 68px; }
   .nbm { font-size: 0.9rem; }
   .nbs { font-size: 0.75rem; }
   .nli { height: 2.2rem; }
+}
+
+@media(max-width: 375px) {
+  .nv { padding-left: 14px; padding-right: 14px; height: 62px; }
+  .nli { height: 2rem; }
+  .m-drawer-inner { width: 100%; }
 }
 
 /* Hamburger */
@@ -134,7 +141,7 @@ nav.scrolled {
   padding: 6px;
   z-index: 501;
   transition: all .3s;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .hamb-line {
@@ -270,6 +277,7 @@ nav.scrolled {
   padding: 6px 12px;
   background: var(--gold-lt);
   border: 1px solid var(--gold-ln2);
+  border-radius: 6px;
   cursor: pointer;
   font-size: .55rem;
   font-weight: 700;

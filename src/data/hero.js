@@ -13,6 +13,7 @@ const RU = {
   ],
   HERO_BTN_PRIMARY: 'Изучить платформу',
   HERO_BTN_SECONDARY: 'Связаться',
+  HERO_WIP: 'в разработке',
   HERO_VIDEO_LABEL: 'Смотреть ролик',
   HERO_VIDEO_SUB: 'Официальные мероприятия G-Index',
 };
@@ -30,6 +31,7 @@ const EN = {
   ],
   HERO_BTN_PRIMARY: 'Explore Platform',
   HERO_BTN_SECONDARY: 'Contact Us',
+  HERO_WIP: 'in development',
   HERO_VIDEO_LABEL: 'Watch Video',
   HERO_VIDEO_SUB: 'Official G-Index Events',
 };

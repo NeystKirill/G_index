@@ -186,10 +186,20 @@ body {
   .sdi { padding-left: 28px; padding-right: 28px; }
   .sw { padding: 80px 0; }
 }
+@media(max-width: 768px) {
+  .sw { padding: 64px 0; }
+  .cn { padding-left: 24px; padding-right: 24px; }
+  .sdi { padding-left: 24px; padding-right: 24px; }
+  .h2 { font-size: clamp(2rem, 6vw, 2.8rem); }
+}
 @media(max-width: 600px) {
   .cn { padding-left: 20px; padding-right: 20px; }
   .sdi { padding-left: 20px; padding-right: 20px; }
-  .sw { padding: 60px 0; }
+  .sw { padding: 52px 0; }
   .sdn { font-size: 0.6rem; padding-right: 12px; }
   .sdlbl { font-size: 0.6rem; padding-left: 12px; }
+}
+@media(max-width: 375px) {
+  .cn { padding-left: 16px; padding-right: 16px; }
+  .sw { padding: 44px 0; }
 }

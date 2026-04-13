@@ -1,7 +1,6 @@
 /* ─── Hero ───────────────────────────────────────────────────────────── */
 .hw {
   position: relative; z-index: 1;
-  padding-top: 80px;
   padding-top: 60px;
   min-height: 90vh;
   display: flex; flex-direction: column;
@@ -222,6 +221,7 @@
   padding: 15px 36px; font-weight: 600; cursor: pointer;
   text-decoration: none; display: inline-block;
   background: var(--navy); color: #fff; border: 1px solid var(--navy);
+  border-radius: 6px;
   transition: background .25s, transform .2s;
 }
 .bp:hover { background: var(--navy2); transform: translateY(-2px); }
@@ -232,9 +232,43 @@
   text-decoration: none; display: inline-block;
   background: transparent; color: var(--gold);
   border: 1px solid var(--gold-ln2);
+  border-radius: 6px;
   transition: background .25s, transform .2s;
 }
 .bo:hover { background: var(--gold-lt); transform: translateY(-2px); }
+
+/* ── Status chip "в разработке / in development" ── */
+.h-wip {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 10px;
+  border: 1px solid rgba(196,160,64,.28);
+  background: rgba(196,160,64,.06);
+  border-radius: 6px;
+  width: fit-content;
+  align-self: flex-start;
+}
+.h-wip-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold2);
+  flex-shrink: 0;
+  animation: wip-pulse 2.4s ease-in-out infinite;
+}
+@keyframes wip-pulse {
+  0%, 100% { opacity: 1;  transform: scale(1); }
+  50%       { opacity: .35; transform: scale(.75); }
+}
+.h-wip-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  white-space: nowrap;
+}
 
 /* ── Video CTA strip at bottom ── */
 .h-video-cta {
@@ -260,6 +294,7 @@
   .bp, .bo { width: 100%; text-align: center; padding: 12px 20px; font-size: 0.65rem; }
   .h-video-cta { flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px; }
   .h-vcta-arrow { display: none; }
+  .h-wip { width: 100%; justify-content: center; }
 }
 
 .h-vcta-play {
@@ -301,12 +336,28 @@
   .h-logo-wrap { width: 220px; }
   .ht-g { font-size: clamp(4rem, 14vw, 6rem); }
 }
+@media(max-width: 768px) {
+  .h-split { padding: 28px 24px 36px; gap: 28px; }
+  .h-logo-wrap { width: 180px; }
+  .ht-g { font-size: clamp(3.5rem, 12vw, 5rem); }
+  .ht-hub { font-size: clamp(1.8rem, 6vw, 3rem); }
+  .ht-divider { margin: 14px 0 20px; }
+  .h-video-cta { padding: 16px 24px; gap: 14px; }
+}
 @media(max-width: 600px) {
   .h-left { display: none; }
-  .h-split { padding: 20px 20px 40px; gap: 30px; }
-  .ht-g { font-size: 3.5rem; }
-  .ht-hub { font-size: 1.8rem; }
+  .h-split { padding: 20px 20px 40px; gap: 24px; }
+  .ht-g { font-size: 3.2rem; }
+  .ht-hub { font-size: 1.7rem; }
   .ht-kz { font-size: 0.7rem; letter-spacing: 0.3em; }
   .hd { font-size: 0.9rem; line-height: 1.7; margin-bottom: 24px; }
   .h-meta-inner { height: auto; padding: 10px 20px; flex-direction: column; gap: 8px; align-items: flex-start; }
+  .h-vcta-label { font-size: 0.65rem; }
+  .h-vcta-sub { font-size: 0.65rem; }
+}
+@media(max-width: 375px) {
+  .h-split { padding: 16px 16px 32px; }
+  .ht-g { font-size: 2.8rem; }
+  .ht-hub { font-size: 1.4rem; }
+  .hw { min-height: 100svh; }
 }

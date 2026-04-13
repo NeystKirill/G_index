@@ -215,17 +215,29 @@
   .sc { position: static; padding: 40px; }
 }
 
+@media (max-width: 768px) {
+  .sc { padding: 32px 24px; }
+  .ric { padding: 24px 28px; }
+  .ri { gap: 20px; }
+  .ric-title { font-size: 1.25rem; }
+}
+
 @media (max-width: 600px) {
   .st { margin-top: 30px; }
-  .sc { padding: 30px 20px; text-align: center; }
+  .sc { padding: 28px 20px; text-align: center; }
   .st-year-wrap { justify-content: center; }
   .st-year { font-size: 3.8rem; }
   .st-note { font-size: 0.95rem; }
-  
   .ri { gap: 16px; }
-  .rmk { display: none; } /* On very small screens, hide the timeline line */
-  .ric { padding: 24px 20px; margin-bottom: 16px; }
+  .rmk { display: none; }
+  .ric { padding: 22px 18px; margin-bottom: 14px; }
   .ric:hover { transform: translateY(-5px); }
   .ric-title { font-size: 1.2rem; }
   .ric-desc { font-size: 0.95rem; }
+}
+
+@media (max-width: 375px) {
+  .sc { padding: 24px 16px; }
+  .st-year { font-size: 3.2rem; }
+  .ric { padding: 18px 14px; }
 }

@@ -64,12 +64,22 @@
 }
 
 @media (max-width: 1060px) {
-  .il { grid-template-columns: 1fr; gap: 40px; } /* Reduced from 60px */
+  .il { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  .ic { padding: 28px 24px; }
+  .icn { font-size: 1.5rem; }
 }
 
 @media (max-width: 600px) {
-  .ic { padding: 24px 20px; }
+  .ic { padding: 22px 18px; }
   .ic:hover { transform: translateY(-5px); }
-  .icn { font-size: 1.4rem; }
+  .icn { font-size: 1.35rem; }
   .icd { font-size: 0.95rem; }
+}
+
+@media (max-width: 375px) {
+  .ic { padding: 18px 14px; }
+  .icn { font-size: 1.2rem; }
 }

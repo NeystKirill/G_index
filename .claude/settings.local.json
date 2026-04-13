@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find C:/Users/Ангелина/Downloads/GIH/G_index_h-main/src -name hero* -o -name Hero*)"
+    ]
+  }
+}

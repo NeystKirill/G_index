@@ -4,7 +4,7 @@ import './Hero.css';
 export default function Hero() {
   const {
     HERO_BTN_PRIMARY, HERO_BTN_SECONDARY,
-    HERO_VIDEO_LABEL, HERO_VIDEO_SUB,
+    HERO_VIDEO_LABEL, HERO_VIDEO_SUB, HERO_WIP,
   } = useHeroData();
   return (
     <div className="hw">
@@ -56,6 +56,10 @@ export default function Hero() {
           <div className="hbtns">
             <a href="#about" className="bp">{HERO_BTN_PRIMARY}</a>
             <a href="#contact" className="bo">{HERO_BTN_SECONDARY}</a>
+          </div>
+          <div className="h-wip">
+            <span className="h-wip-dot" aria-hidden="true"></span>
+            <span className="h-wip-text">{HERO_WIP}</span>
           </div>
         </div>
       </div>

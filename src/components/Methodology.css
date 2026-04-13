@@ -167,6 +167,11 @@
   .meth-tiers { grid-template-columns: repeat(3, 1fr); gap: 16px; }
 }
 
+@media (max-width: 768px) {
+  .meth-tiers { grid-template-columns: repeat(2, 1fr); }
+  .meth-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 640px) {
   .meth-grid { grid-template-columns: 1fr; }
   .meth-tiers { grid-template-columns: 1fr; }
@@ -174,4 +179,9 @@
   .meth-tier { padding: 24px 20px; text-align: left; }
   .meth-tier-range { font-size: 1.8rem; }
   .meth-tiers-wrap { margin-top: 60px; }
+}
+
+@media (max-width: 375px) {
+  .meth-tier-range { font-size: 1.6rem; }
+  .meth-cat-card { padding: 20px 16px; }
 }

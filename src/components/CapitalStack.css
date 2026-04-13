@@ -83,11 +83,21 @@
   .cs-level-line { height: 120px; }
 }
 
+@media (max-width: 768px) {
+  .cs-level-full-card { padding: 24px; }
+  .cs-level-line { height: 100px; }
+}
+
 @media (max-width: 600px) {
   .cs-level-row { gap: 12px; }
   .cs-level-line { width: 4px; height: auto; align-self: stretch; }
-  .cs-level-full-card { padding: 24px 20px; }
-  .cs-level-sources { font-size: 1.15rem; }
+  .cs-level-full-card { padding: 20px 16px; }
+  .cs-level-sources { font-size: 1.1rem; }
   .cs-level-role { font-size: 0.95rem; }
   .cs-level-row:hover .cs-level-full-card { transform: none; }
+}
+
+@media (max-width: 375px) {
+  .cs-level-full-card { padding: 16px 12px; }
+  .cs-level-sources { font-size: 1rem; }
 }

@@ -98,15 +98,20 @@
 }
 
 @media (max-width: 1060px) {
-  .tg { grid-template-columns: 1fr; gap: 24px; }
-  .tn { padding: 40px; }
+  .tg { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .tn { padding: 36px; }
 }
 
 @media (max-width: 600px) {
-  .tg { margin-top: 30px; gap: 16px; }
+  .tg { grid-template-columns: 1fr; margin-top: 30px; gap: 16px; }
   .tn { padding: 30px 20px; }
   .tnt { font-size: 1.2rem; }
   .tnd { font-size: 0.95rem; }
   .tf { padding: 24px 20px; }
   .tf p { font-size: 1rem; }
+}
+
+@media (max-width: 375px) {
+  .tnt { font-size: 1.1rem; }
+  .tn { padding: 24px 16px; }
 }
