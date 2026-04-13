@@ -1,0 +1,112 @@
+.tg {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.tn {
+  padding: 36px 32px; /* Reduced from 48px 40px */
+  border-radius: var(--r);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+  transition: transform .35s, background .3s;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tn:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: var(--shadow2);
+  border-color: var(--gold-ln2);
+}
+
+.tn-num {
+  font-size: .8rem; /* Reduced from .85rem */
+  letter-spacing: .35em;
+  color: var(--gold3);
+  font-weight: 700;
+  margin-bottom: 20px; /* Reduced from 24px */
+  display: block;
+}
+
+.tn-icon {
+  margin-bottom: 20px;
+}
+
+.tn-icon img {
+  width: 28px; /* Reduced from 32px */
+  height: 28px; /* Reduced from 32px */
+  opacity: .9;
+}
+
+.tn-icon-sym {
+  width: 44px; /* Reduced from 48px */
+  height: 44px; /* Reduced from 48px */
+  border-radius: 10px;
+  border: 1px solid var(--gold-ln);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold-lt);
+  font-size: .88rem; /* Reduced from .95rem */
+  color: var(--gold2);
+  font-weight: 700;
+}
+
+.tnt {
+  font-weight: 700;
+  font-size: 1.35rem; /* Reduced from 1.45rem */
+  color: var(--navy);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.tnd {
+  font-size: 1.05rem; /* Reduced from 1.15rem */
+  line-height: 1.7;
+  color: var(--t2);
+}
+
+/* Bottom footnote */
+.tf {
+  margin-top: 40px; /* Reduced from 60px */
+  padding: 32px; /* Reduced from 40px */
+  border-radius: var(--r);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-left: 4px solid var(--gold2);
+  box-shadow: var(--shadow);
+}
+
+.tf p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--t2);
+}
+
+.tf strong {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+@media (max-width: 1060px) {
+  .tg { grid-template-columns: 1fr; gap: 24px; }
+  .tn { padding: 40px; }
+}
+
+@media (max-width: 600px) {
+  .tg { margin-top: 30px; gap: 16px; }
+  .tn { padding: 30px 20px; }
+  .tnt { font-size: 1.2rem; }
+  .tnd { font-size: 0.95rem; }
+  .tf { padding: 24px 20px; }
+  .tf p { font-size: 1rem; }
+}

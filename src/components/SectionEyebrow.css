@@ -1,0 +1,59 @@
+/* ─── Section Eyebrow — shimmer line + label ─────────────────────────── */
+.s-ey {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+/* Shimmer line */
+.s-ey-line {
+  height: 2px;
+  width: 72px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  background: rgba(168, 131, 42, .12);
+}
+.s-ey-beam {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 130%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--gold2) 20%,
+    var(--gold4) 50%,
+    var(--gold2) 80%,
+    transparent 100%);
+  animation: ey-shimmer 2.4s ease-in-out infinite;
+}
+@keyframes ey-shimmer {
+  0%   { left: -130%; }
+  100% { left: 100%; }
+}
+
+/* Accent variant — indigo line */
+.s-ey--accent .s-ey-line {
+  background: rgba(28, 20, 121, .10);
+}
+.s-ey--accent .s-ey-beam {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--indigo) 20%,
+    #3b35c4 50%,
+    var(--indigo) 80%,
+    transparent 100%);
+}
+.s-ey--accent .s-ey-text {
+  color: var(--indigo);
+}
+
+/* Label */
+.s-ey-text {
+  font-size: .64rem;
+  letter-spacing: .44em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  font-weight: 700;
+  white-space: nowrap;
+}

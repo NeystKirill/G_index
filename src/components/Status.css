@@ -1,0 +1,231 @@
+#status.sw {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.st {
+  display: grid;
+  grid-template-columns: 38fr 62fr;
+  gap: 50px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+.sc {
+  padding: 48px 40px;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+  border-radius: var(--r);
+  color: var(--white);
+  box-shadow: var(--shadow2);
+  position: sticky; top: 120px;
+  border: 1px solid rgba(255,255,255,.12);
+  overflow: hidden;
+}
+
+/* Subtle inner glow for the navy card */
+.sc::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 10% 10%, rgba(212,176,80,.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.st-ey {
+  display: block;
+  font-size: .7rem;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  color: var(--gold3);
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.st-year-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.st-year {
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: .9;
+  color: var(--white);
+  letter-spacing: -.02em;
+}
+
+.st-badge {
+  padding: 6px 14px;
+  border: 1px solid var(--gold-ln);
+  border-radius: 30px;
+  font-size: .65rem;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  color: var(--gold3);
+  font-weight: 700;
+  background: rgba(168,131,42,.15);
+}
+
+.st-note {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,.75);
+}
+
+/* Roadmap Grid */
+.rm {
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* Gap is managed by the cards and timeline */
+}
+
+.ri {
+  display: flex;
+  gap: 32px;
+  position: relative;
+}
+
+.rmk {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 10px;
+}
+
+.rdot {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--gold-ln2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  box-shadow: 0 4px 12px rgba(12,27,51,0.06);
+  z-index: 2;
+  transition: transform .3s ease, border-color .3s;
+}
+
+.rdot-in {
+  width: 10px;
+  height: 10px;
+  background: var(--gold-ln);
+  border-radius: 50%;
+  transition: background .3s, transform .3s;
+}
+
+.ri:hover .rdot {
+  border-color: var(--gold2);
+  transform: scale(1.1);
+}
+
+.ri:hover .rdot-in {
+  background: var(--gold2);
+  transform: scale(1.2);
+}
+
+.rline {
+  flex: 1;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold-ln2) 0%, var(--gold-ln2) 100%);
+  margin: 10px 0;
+  opacity: 0.6;
+}
+
+/* The card itself */
+.ric {
+  flex: 1;
+  padding: 30px 40px;
+  border-radius: var(--r);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  transition: transform .4s cubic-bezier(.165, .84, .44, 1), background .3s, border-color .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.ric:hover {
+  transform: translateX(12px);
+  background: rgba(255, 255, 255, 0.75);
+  border-color: var(--gold-ln2);
+  box-shadow: var(--shadow2);
+}
+
+.ric::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--gold2);
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.ric:hover::before {
+  opacity: 1;
+}
+
+.ric-ey {
+  display: block;
+  font-size: .7rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.ric-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.ric-desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--t2);
+}
+
+/* Animation refinement */
+.ri {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: roadmap-in .8s forwards;
+}
+
+@keyframes roadmap-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ri:nth-child(1) { animation-delay: .2s; }
+.ri:nth-child(2) { animation-delay: .4s; }
+.ri:nth-child(3) { animation-delay: .6s; }
+
+@media (max-width: 1060px) {
+  .st { grid-template-columns: 1fr; gap: 40px; }
+  .sc { position: static; padding: 40px; }
+}
+
+@media (max-width: 600px) {
+  .st { margin-top: 30px; }
+  .sc { padding: 30px 20px; text-align: center; }
+  .st-year-wrap { justify-content: center; }
+  .st-year { font-size: 3.8rem; }
+  .st-note { font-size: 0.95rem; }
+  
+  .ri { gap: 16px; }
+  .rmk { display: none; } /* On very small screens, hide the timeline line */
+  .ric { padding: 24px 20px; margin-bottom: 16px; }
+  .ric:hover { transform: translateY(-5px); }
+  .ric-title { font-size: 1.2rem; }
+  .ric-desc { font-size: 0.95rem; }
+}

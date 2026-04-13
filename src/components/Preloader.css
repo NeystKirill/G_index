@@ -1,0 +1,171 @@
+.preloader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--deep);
+  display: flex; align-items: center; justify-content: center;
+  animation: pl-exit .8s 2.4s cubic-bezier(.8,0,1,1) forwards;
+  overflow: hidden;
+}
+
+/* Atmospheric background glow */
+.preloader::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(168,131,42,.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pl-pulse 3s ease-in-out infinite;
+}
+
+.pl-inner {
+  display: flex; flex-direction: column; align-items: center; gap: 0;
+  animation: pl-in .7s ease both;
+  position: relative; z-index: 1;
+}
+
+/* ── Orbital system ── */
+.pl-ring {
+  width: 200px; height: 200px;
+  position: relative;
+  margin-bottom: 36px;
+}
+
+/* Outer orbit track */
+.pl-ring::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(212,176,80,.12);
+  animation: pl-ring-spin 8s linear infinite;
+}
+
+/* Middle orbit track */
+.pl-ring::after {
+  content: '';
+  position: absolute; inset: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(212,176,80,.07);
+  animation: pl-ring-spin 12s linear reverse infinite;
+}
+
+/* Gold progress arc — outer */
+.pl-arc {
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--gold3);
+  border-right-color: rgba(212,176,80,.3);
+  animation: pl-ring-spin 1.6s cubic-bezier(.6,0,.4,1) infinite;
+  filter: drop-shadow(0 0 6px rgba(212,176,80,.5));
+}
+
+/* Inner accent ring */
+.pl-ring-inner {
+  position: absolute; inset: 24px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  border-bottom-color: rgba(212,176,80,.4);
+  animation: pl-ring-spin 2.2s linear reverse infinite;
+}
+
+/* Glowing center circle */
+.pl-logo {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.pl-logo-circle {
+  width: 128px; height: 128px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(255,255,255,.96) 0%, rgba(244,242,236,.88) 100%);
+  border: 1px solid rgba(212,176,80,.25);
+  box-shadow:
+    0 0 0 8px rgba(168,131,42,.04),
+    0 0 40px rgba(168,131,42,.12),
+    0 16px 48px rgba(12,27,51,.18),
+    inset 0 1px 0 rgba(255,255,255,.95);
+  display: flex; align-items: center; justify-content: center;
+  animation: pl-circle-glow 2s ease-in-out infinite alternate;
+}
+
+.pl-logo img {
+  width: 80px; height: auto;
+  filter: drop-shadow(0 3px 10px rgba(12,27,51,.15));
+  animation: pl-logo-appear .5s .1s both;
+}
+
+/* Orbit dot */
+.pl-orbit-dot {
+  position: absolute; inset: 0;
+  animation: pl-ring-spin 2.8s linear infinite;
+}
+.pl-orbit-dot::after {
+  content: '';
+  position: absolute; top: 4px; left: 50%;
+  transform: translateX(-50%);
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--gold3);
+  box-shadow: 0 0 8px rgba(212,176,80,.8), 0 0 16px rgba(212,176,80,.4);
+}
+
+.pl-wordmark {
+  font-weight: 600;
+  font-size: 3.2rem;
+  letter-spacing: .05em;
+  color: #fff;
+  line-height: 1;
+  animation: pl-reveal .6s .2s both;
+  text-shadow: 0 2px 20px rgba(168,131,42,.18);
+}
+.pl-wordmark span { color: var(--gold3); }
+
+.pl-sub {
+  font-size: .46rem; letter-spacing: .6em; text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  margin-top: 10px;
+  animation: pl-reveal .6s .32s both;
+}
+
+.pl-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 20px 0 0;
+  animation: pl-reveal .5s .42s both;
+  width: 200px;
+}
+.pl-div-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,176,80,.35));
+}
+.pl-div-line:last-child {
+  background: linear-gradient(270deg, transparent, rgba(212,176,80,.35));
+}
+.pl-div-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--gold3);
+  box-shadow: 0 0 6px rgba(212,176,80,.6);
+}
+
+.pl-bar-wrap {
+  width: 200px; height: 1px;
+  background: rgba(255,255,255,.07);
+  margin-top: 20px; overflow: hidden;
+  animation: pl-reveal .4s .5s both;
+}
+.pl-bar {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--gold2), var(--gold4), var(--gold2));
+  animation: pl-load 2s .5s ease-in-out forwards;
+  box-shadow: 0 0 8px rgba(212,176,80,.6);
+}
+
+@keyframes pl-exit    { to { opacity: 0; pointer-events: none; visibility: hidden; } }
+@keyframes pl-in      { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+@keyframes pl-reveal  { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes pl-logo-appear { from { opacity: 0; transform: scale(.85); } to { opacity: 1; transform: scale(1); } }
+@keyframes pl-ring-spin { to { transform: rotate(360deg); } }
+@keyframes pl-load    { to { width: 100%; } }
+@keyframes pl-pulse   { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.15); opacity: .7; } }
+@keyframes pl-circle-glow {
+  from { box-shadow: 0 0 0 8px rgba(168,131,42,.04), 0 0 28px rgba(168,131,42,.10), 0 16px 48px rgba(12,27,51,.18), inset 0 1px 0 rgba(255,255,255,.95); }
+  to   { box-shadow: 0 0 0 12px rgba(168,131,42,.07), 0 0 48px rgba(168,131,42,.18), 0 16px 48px rgba(12,27,51,.18), inset 0 1px 0 rgba(255,255,255,.95); }
+}

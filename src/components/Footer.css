@@ -1,0 +1,39 @@
+footer {
+  position: relative; z-index: 1;
+  background: var(--deep);
+  border-top: 1px solid rgba(168,131,42,.2);
+}
+.fi {
+  max-width: 1380px; margin: 0 auto; padding: 40px 60px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.fbrand { display: flex; align-items: center; gap: 14px; }
+.fli {
+  height: 34px; width: auto;
+  filter: brightness(0) invert(1) opacity(.8);
+}
+.fbt {
+  font-size: 1.12rem; color: rgba(255,255,255,.9);
+}
+.fbt .gi { color: var(--gold3); }
+.fseal {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid rgba(168,131,42,.3);
+  display: flex; align-items: center; justify-content: center;
+}
+.fcp {
+  font-size: .52rem; letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(255,255,255,.28); text-align: right; line-height: 2;
+}
+@media(max-width: 1060px) {
+  .fi { flex-direction: column; text-align: center; padding: 36px 28px; gap: 24px; }
+  .fcp { text-align: center; }
+  .fbrand { flex-direction: column; gap: 10px; }
+}
+
+@media(max-width: 600px) {
+  .fi { padding: 30px 20px; gap: 20px; }
+  .fbt { font-size: 1rem; }
+  .fcp { font-size: 0.48rem; }
+}
+.fgi { color: var(--gold3); }

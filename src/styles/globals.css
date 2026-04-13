@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+/* System Font Stack - Apple Inspired */
+
+/* ─── Design Tokens ──────────────────────────────────────────────────── */
+:root {
+  --bg:      #F7F6F2;
+  --surface: #FFFFFF;
+  --deep:    #06101F;
+  --navy:    #0C1B33;
+  --navy2:   #16294A;
+  --navy3:   #223258;
+
+  --gold:    #A8832A;
+  --gold2:   #C4A040;
+  --gold3:   #D9B85A;
+  --gold4:   #EDD07A;
+  --gold-lt: rgba(168,131,42,.07);
+  --gold-ln: rgba(168,131,42,.22);
+  --gold-ln2:rgba(168,131,42,.40);
+
+  --indigo:  #1C1479;
+  --in-lt:   rgba(28,20,121,.05);
+  --in-ln:   rgba(28,20,121,.18);
+
+  --t1: #0C1B33;
+  --t2: #2E4060;
+  --t3: #586985;
+  --t4: #8799AF;
+
+  --b1: rgba(12,27,51,.12);
+  --b2: rgba(12,27,51,.08);
+  --b3: rgba(12,27,51,.04);
+
+  --white: #FFFFFF;
+  --off:   #F4F3EF;
+  --off2:  #EEECEA;
+
+  --r: 18px; /* Slightly reduced rounding */
+  --shadow: 0 1px 3px rgba(12,27,51,.04), 0 6px 24px rgba(12,27,51,.07);
+  --shadow2: 0 4px 12px rgba(12,27,51,.05), 0 12px 48px rgba(12,27,51,.12);
+
+  /* Shared Glass UI components — more refined */
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(12, 27, 51, 0.12);
+  --glass-blur: blur(24px);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--bg);
+  /* Added subtle background pattern to reduce "emptiness" */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(168,131,42,.05) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(28,20,121,.03) 0px, transparent 50%);
+  color: var(--t1);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-variant-numeric: tabular-nums lining-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  overflow-x: hidden;
+  line-height: 1.6; 
+  position: relative;
+  width: 100%;
+}
+
+/* ─── Top rule ───────────────────────────────────────────────────────── */
+.gold-rule {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 600; height: 3px;
+  background: linear-gradient(90deg,
+    var(--navy) 0%,
+    var(--gold2) 22%,
+    var(--gold4) 50%,
+    var(--gold2) 78%,
+    var(--navy) 100%);
+}
+
+/* ─── Layout primitives ──────────────────────────────────────────────── */
+.sw  { position: relative; z-index: 1; padding: 110px 0; background: transparent; } /* Reduced from 140px */
+.sw-alt { background: transparent; }
+.cn  { max-width: 1380px; margin: 0 auto; padding: 0 60px; } /* Slightly more narrow */
+
+/* ── Glass card utility ────────────────────────────────────────────── */
+.glass-card {
+  border-radius: var(--r);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow2);
+  overflow: hidden;
+}
+
+/* ─── Section divider ────────────────────────────────────────────────── */
+.sdi-wrap {
+  position: relative; z-index: 2;
+  padding: 60px 0 30px; /* Reduced from 80px/40px */
+}
+.sdi-wrap::before {
+  content: '';
+  position: absolute; left: 0; right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--gold-ln) 15%,
+    var(--gold-ln2) 50%,
+    var(--gold-ln) 85%,
+    transparent);
+}
+.sdi {
+  position: relative; z-index: 1;
+  display: flex; align-items: center;
+  max-width: 1380px; margin: 0 auto; padding: 0 60px;
+}
+.sdn {
+  font-size: .65rem; letter-spacing: .28em; 
+  color: var(--gold2); padding-right: 20px; flex-shrink: 0; font-weight: 700;
+}
+.sdll { width: 32px; height: 1px; background: var(--gold-ln); flex-shrink: 0; }
+.sdorn {
+  width: 24px; height: 24px; flex-shrink: 0; margin: 0 14px;
+  opacity: .9; filter: drop-shadow(0 0 8px rgba(212,176,80,.4));
+}
+.sddia { display: none; }
+.sdlr { flex: 1; height: 1px; background: linear-gradient(to right, var(--gold-ln), transparent); }
+.sdlbl {
+  font-size: .65rem; letter-spacing: .38em; text-transform: uppercase;
+  color: var(--t4); padding-left: 20px; flex-shrink: 0; font-weight: 700;
+}
+
+/* ─── Typography system ──────────────────────────────────────────────── */
+.ey {
+  font-size: .65rem; letter-spacing: .46em; text-transform: uppercase;
+  color: var(--gold2); display: block; margin-bottom: 20px; font-weight: 700;
+}
+.ey.in { color: var(--indigo); }
+
+.h2 {
+  font-weight: 700;
+  font-size: clamp(2.4rem, 4vw, 3.4rem); 
+  line-height: 1.15;
+  color: var(--navy);
+  margin-bottom: 28px;
+  letter-spacing: -.03em;
+}
+
+@media(max-width: 600px) {
+  .h2 { font-size: 2.2rem; }
+}
+.h2 em { color: var(--gold2); font-style: normal; }
+
+.bd {
+  font-size: 1.1rem; line-height: 1.8; color: var(--t2); font-weight: 400; /* Reduced from 1.15rem */
+}
+.bd p + p { margin-top: 20px; }
+.bd strong { color: var(--navy); font-weight: 600; }
+
+.fq {
+  margin-top: 40px;
+  padding: 28px 32px 28px 36px;
+  border-left: 4px solid var(--gold3);
+  background: linear-gradient(135deg, var(--gold-lt) 0%, transparent 80%);
+  position: relative;
+  border-radius: 0 var(--r) var(--r) 0;
+}
+.fq::before {
+  content: '\201C';
+  position: absolute; top: -6px; left: 14px;
+  font-size: 4rem; color: var(--gold3); opacity: .35; line-height: 1;
+}
+.fq p {
+  font-style: italic; font-size: 1.1rem; line-height: 1.7; color: var(--t1);
+}
+
+/* ─── Scroll reveal ──────────────────────────────────────────────────── */
+.rev { opacity: 0; transform: translateY(20px); transition: opacity .75s, transform .75s; }
+.rev.in { opacity: 1; transform: none; }
+@keyframes rs { to { opacity: 1; transform: none; } }
+
+/* ─── Responsive ─────────────────────────────────────────────────────── */
+@media(max-width: 1060px) {
+  .cn { padding-left: 28px; padding-right: 28px; }
+  .sdi { padding-left: 28px; padding-right: 28px; }
+  .sw { padding: 80px 0; }
+}
+@media(max-width: 600px) {
+  .cn { padding-left: 20px; padding-right: 20px; }
+  .sdi { padding-left: 20px; padding-right: 20px; }
+  .sw { padding: 60px 0; }
+  .sdn { font-size: 0.6rem; padding-right: 12px; }
+  .sdlbl { font-size: 0.6rem; padding-left: 12px; }
+}

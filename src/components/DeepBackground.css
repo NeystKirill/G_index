@@ -1,0 +1,70 @@
+/* ─── Atmospheric Background ──────────────────────────────────────────── */
+.db-root {
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none; overflow: hidden;
+}
+.db-base {
+  position: absolute; inset: 0;
+  background: linear-gradient(168deg,
+    #FAFAF7 0%,
+    #F5F4EF 30%,
+    #EEECe6 65%,
+    #E8E6DE 100%);
+}
+.db-vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 120% 85% at 50% 38%,
+    transparent 42%,
+    rgba(12,27,51,.03) 68%,
+    rgba(12,27,51,.07) 100%);
+}
+.db-blob { position: absolute; border-radius: 50%; }
+
+/* Far — top warm gold */
+.db-blob--1 {
+  width: 1200px; height: 900px; top: -280px; left: 48%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(192,148,48,.055) 0%, transparent 62%);
+  filter: blur(90px);
+}
+/* Far — right indigo */
+.db-blob--2 {
+  width: 900px; height: 900px; top: 22%; right: -280px;
+  background: radial-gradient(circle, rgba(28,20,121,.06) 0%, transparent 62%);
+  filter: blur(80px);
+}
+/* Far — lower left navy */
+.db-blob--3 {
+  width: 1000px; height: 900px; bottom: -100px; left: -280px;
+  background: radial-gradient(circle, rgba(10,20,50,.055) 0%, transparent 62%);
+  filter: blur(88px);
+}
+/* Near — upper left gold */
+.db-blob--4 {
+  width: 520px; height: 520px; top: 6%; left: 3%;
+  background: radial-gradient(circle, rgba(192,148,48,.07) 0%, transparent 65%);
+  filter: blur(48px);
+}
+/* Near — center blue */
+.db-blob--5 {
+  width: 440px; height: 440px; top: 48%; left: 46%;
+  background: radial-gradient(circle, rgba(26,74,138,.055) 0%, transparent 65%);
+  filter: blur(40px);
+}
+/* Near — lower warm */
+.db-blob--6 {
+  width: 700px; height: 480px; bottom: 8%; left: 24%;
+  background: radial-gradient(ellipse, rgba(192,148,48,.05) 0%, transparent 65%);
+  filter: blur(70px);
+}
+/* Mirror sheen */
+.db-mirror {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 420px;
+  background: linear-gradient(to top, rgba(255,255,255,.12) 0%, rgba(248,246,240,.06) 45%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, black 50%, black 100%);
+}
+.db-mirror::before {
+  content: '';
+  position: absolute; top: 0; left: 6%; right: 6%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(192,148,48,.20) 25%, rgba(255,255,255,.28) 50%, rgba(192,148,48,.20) 75%, transparent);
+}

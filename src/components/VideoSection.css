@@ -1,0 +1,98 @@
+.vs-wrap {
+  position: relative; z-index: 1;
+  padding: 80px 0 100px;
+}
+.vs-inner {
+  max-width: 1380px; margin: 0 auto; padding: 0 60px;
+}
+
+/* Eyebrow */
+.vs-head {
+  display: flex; align-items: center; gap: 18px;
+  margin-bottom: 32px;
+}
+.vs-ey-line {
+  height: 2px; width: 72px; flex-shrink: 0;
+  position: relative; overflow: hidden;
+  background: rgba(168,131,42,.12);
+}
+.vs-ey-beam {
+  position: absolute; top: 0; bottom: 0; width: 130%;
+  background: linear-gradient(90deg,
+    transparent 0%, var(--gold2) 20%, var(--gold4) 50%, var(--gold2) 80%, transparent 100%);
+  animation: ey-shimmer 2.4s ease-in-out infinite;
+}
+@keyframes ey-shimmer { 0% { left: -130%; } 100% { left: 100%; } }
+.vs-ey-text {
+  font-size: .64rem; letter-spacing: .44em; text-transform: uppercase;
+  color: var(--gold2); font-weight: 700;
+}
+
+/* Video */
+.vs-carousel { width: 100%; }
+
+/* Caption block */
+.vs-caption {
+  margin-top: 0;
+  border: 1px solid var(--b1);
+  border-top: none;
+  display: flex; align-items: stretch;
+  background: rgba(255,255,255,.55);
+  backdrop-filter: blur(8px);
+}
+
+.vs-caption-left {
+  display: flex; align-items: center; gap: 18px;
+  padding: 22px 28px;
+  border-right: 1px solid var(--b1);
+  flex: 1;
+}
+.vs-cap-ornament {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+}
+.vs-cap-ornament img {
+  width: 28px; height: 28px; opacity: .75;
+  filter: drop-shadow(0 0 4px rgba(212,176,80,.3));
+}
+.vs-cap-text { display: flex; flex-direction: column; gap: 3px; }
+.vs-cap-title {
+  font-size: 1.02rem; font-weight: 600;
+  color: var(--navy); letter-spacing: .01em;
+}
+.vs-cap-sub {
+  font-size: .7rem; color: var(--t3); letter-spacing: .04em;
+}
+
+.vs-caption-right {
+  display: flex; flex-direction: column; justify-content: center;
+  gap: 5px; padding: 22px 32px; min-width: 320px;
+}
+.vs-cap-quote {
+  font-style: italic; font-size: 1.05rem;
+  color: var(--gold); line-height: 1.4; letter-spacing: .01em;
+}
+.vs-cap-year {
+  font-size: .48rem; letter-spacing: .44em; text-transform: uppercase;
+  color: var(--t4); font-weight: 400;
+}
+
+@media(max-width: 1060px) {
+  .vs-inner { padding: 0 28px; }
+  .vs-caption { flex-direction: column; }
+  .vs-caption-left { border-right: none; border-bottom: 1px solid var(--b1); }
+  .vs-caption-right { min-width: unset; }
+}
+
+@media(max-width: 600px) {
+  .vs-wrap { padding: 40px 0 60px; }
+  .vs-inner { padding: 0 20px; }
+  .vs-head { gap: 12px; margin-bottom: 20px; }
+  .vs-ey-line { width: 40px; }
+  .vs-ey-text { font-size: 0.55rem; letter-spacing: 0.25em; }
+  .vs-caption-left { padding: 16px 20px; gap: 14px; }
+  .vs-caption-right { padding: 16px 20px; }
+  .vs-cap-title { font-size: 0.95rem; }
+  .vs-cap-quote { font-size: 0.9rem; }
+}

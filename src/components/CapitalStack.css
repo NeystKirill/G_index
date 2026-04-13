@@ -1,0 +1,93 @@
+.cs-head {
+  max-width: 900px;
+  margin-bottom: 40px; /* Reduced from 50px */
+}
+
+.cs-stack-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cs-level-row {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Reduced from 40px */
+}
+
+.cs-level-line {
+  width: 3px; /* Reduced from 4px */
+  height: 60px; /* Reduced from 80px */
+  border-radius: 4px;
+  background: var(--gold-ln2);
+  flex-shrink: 0;
+}
+
+.cs-level-full-card {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 35fr 65fr;
+  align-items: center;
+  padding: 24px 36px; /* Reduced from 32px 48px */
+  gap: 30px; /* Reduced from 40px */
+  transition: transform .3s ease, background .3s;
+}
+
+.cs-level-row:hover .cs-level-full-card {
+  transform: translateX(8px);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.cs-level-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cs-level-tier {
+  font-size: .8rem; /* Reduced from .88rem */
+  letter-spacing: .3em;
+  color: var(--gold2);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.cs-level-sources {
+  font-size: 1.25rem; /* Reduced from 1.4rem */
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+}
+
+.cs-level-info {
+  border-left: 1px solid var(--gold-ln);
+  padding-left: 30px; /* Reduced from 40px */
+}
+
+.cs-level-role {
+  font-size: 1.05rem; /* Reduced from 1.15rem */
+  line-height: 1.65;
+  color: var(--t2);
+}
+
+/* Color variations */
+.cs-first .cs-level-line { background: var(--gold2); }
+.cs-mezz .cs-level-line { background: var(--navy3); }
+.cs-senior .cs-level-line { background: var(--navy) ; }
+.cs-private .cs-level-line { background: var(--indigo); }
+
+@media (max-width: 1060px) {
+  .cs-level-full-card { grid-template-columns: 1fr; gap: 20px; padding: 32px; }
+  .cs-level-info { border-left: none; border-top: 1px solid var(--gold-ln); padding-left: 0; padding-top: 20px; }
+  .cs-level-line { height: 120px; }
+}
+
+@media (max-width: 600px) {
+  .cs-level-row { gap: 12px; }
+  .cs-level-line { width: 4px; height: auto; align-self: stretch; }
+  .cs-level-full-card { padding: 24px 20px; }
+  .cs-level-sources { font-size: 1.15rem; }
+  .cs-level-role { font-size: 0.95rem; }
+  .cs-level-row:hover .cs-level-full-card { transform: none; }
+}

@@ -1,0 +1,118 @@
+.cl {
+  display: grid;
+  grid-template-columns: 46fr 54fr;
+  gap: 60px; /* Reduced from 100px */
+  align-items: center;
+}
+
+.ct {
+  max-width: 600px;
+}
+
+.ccx {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Reduced from 24px */
+}
+
+.cc {
+  padding: 36px; /* Reduced from 48px */
+  border-radius: var(--r);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+  transition: transform .3s ease, background .3s;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px; /* Reduced from 32px */
+}
+
+.cc:hover {
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.75);
+  border-color: var(--gold-ln2);
+}
+
+.cc-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cc-org {
+  font-size: .8rem; /* Reduced from .85rem */
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--gold3);
+  font-weight: 700;
+}
+
+.cc-title {
+  font-size: 1.45rem; /* Reduced from 1.55rem */
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.cc-role {
+  font-size: 1.05rem; /* Reduced from 1.1rem */
+  line-height: 1.6;
+  color: var(--t2);
+}
+
+.cc-email-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px; /* Reduced from 56px */
+  height: 48px; /* Reduced from 56px */
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 50%;
+  transition: transform .3s, background .3s;
+  text-decoration: none;
+}
+
+.cc:hover .cc-email-link {
+  background: var(--gold2);
+  transform: rotate(-15deg) scale(1.1);
+}
+
+.cc-email-link svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cd-wrap {
+  margin-top: 80px;
+  max-width: 800px;
+}
+
+.cd p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--t4);
+}
+
+.cd p strong {
+  color: var(--t2);
+  font-weight: 600;
+}
+
+@media (max-width: 1060px) {
+  .cl { grid-template-columns: 1fr; gap: 40px; } /* Reduced from 60px */
+}
+
+@media (max-width: 600px) {
+  .cc { grid-template-columns: 1fr; padding: 24px 20px; text-align: center; }
+  .cc-email-link { display: none; }
+  .cc-title { font-size: 1.25rem; }
+  .cc-role { font-size: 0.95rem; }
+  .cl { gap: 40px; }
+  .cc:hover { transform: translateY(-5px); }
+  .cd-wrap { margin-top: 40px; }
+  .cd p { font-size: 0.95rem; }
+}

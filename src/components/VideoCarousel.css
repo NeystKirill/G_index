@@ -1,0 +1,56 @@
+.vcarousel {
+  position: relative; width: 100%;
+  border: 1px solid var(--b1);
+  background: var(--deep);
+  overflow: hidden;
+}
+
+/* Corner marks — editorial precision */
+.vc {
+  position: absolute; width: 14px; height: 14px; z-index: 10; pointer-events: none;
+}
+.vtl { top: -1px; left: -1px; border-top: 2px solid var(--gold2); border-left: 2px solid var(--gold2); }
+.vtr { top: -1px; right: -1px; border-top: 2px solid var(--gold2); border-right: 2px solid var(--gold2); }
+.vbl { bottom: -1px; left: -1px; border-bottom: 2px solid var(--gold2); border-left: 2px solid var(--gold2); }
+.vbr { bottom: -1px; right: -1px; border-bottom: 2px solid var(--gold2); border-right: 2px solid var(--gold2); }
+
+.vbadge {
+  position: absolute; top: 12px; left: 12px; z-index: 20;
+  display: flex; align-items: center; gap: 7px;
+  background: rgba(6,16,31,.82); backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border: 1px solid rgba(168,131,42,.28);
+}
+.vbdot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold3); animation: dot-pulse 2.8s ease-in-out infinite; }
+
+.vslides { position: relative; aspect-ratio: 16/9; }
+.vslide { position: absolute; inset: 0; opacity: 0; transition: opacity .6s; }
+.vslide.active { opacity: 1; }
+.vslide iframe { width: 100%; height: 100%; border: none; display: block; }
+.vslide-overlay { position: absolute; inset: 0; cursor: default; }
+
+/* Controls */
+.vctrl {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 14px 10px;
+  background: rgba(6,16,31,.92); border-top: 1px solid rgba(168,131,42,.14);
+}
+.vdots { display: flex; gap: 6px; }
+.vdot {
+  width: 20px; height: 2px; background: rgba(255,255,255,.18);
+  cursor: pointer; transition: background .25s;
+}
+.vdot.on { background: var(--gold3); }
+.vpbar-wrap { flex: 1; height: 1px; background: rgba(255,255,255,.1); margin: 0 14px; overflow: hidden; }
+.vpbar { height: 100%; width: 0%; background: var(--gold3); }
+.vcap {
+  font-size: .46rem; letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(255,255,255,.3); font-weight: 500; white-space: nowrap;
+}
+
+@media(max-width: 600px) {
+  .vbadge { top: 8px; left: 8px; padding: 4px 8px; }
+  .vbadge span { font-size: 0.44rem; letter-spacing: 0.15em; }
+  .vdots { gap: 4px; }
+  .vd { width: 15px; } /* Corrected selector from .vdot to .vd to match JSX */
+}

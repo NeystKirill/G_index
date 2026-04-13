@@ -1,0 +1,83 @@
+.ag {
+  display: grid; 
+  grid-template-columns: 55fr 45fr; 
+  gap: 80px; /* Reduced from 110px */
+  align-items: center; 
+  margin-top: 60px; /* Reduced from 80px */
+}
+
+/* Stats panel */
+.stp {
+  border-radius: var(--r);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow2);
+  overflow: hidden;
+}
+
+.sth {
+  padding: 20px 28px; /* Reduced from 24px 32px */
+  border-bottom: 1px solid var(--b1);
+  display: flex; align-items: center; gap: 12px;
+  background: linear-gradient(90deg, var(--gold-lt) 0%, transparent 80%);
+}
+
+.sthbar { 
+  width: 2px; height: 18px; /* Reduced from 3px 22px */
+  background: linear-gradient(to bottom, var(--gold2), var(--gold4)); 
+  flex-shrink: 0; 
+}
+
+.sthtxt {
+  font-size: .7rem; /* Reduced from .78rem */
+  letter-spacing: .35em; 
+  text-transform: uppercase;
+  color: var(--gold2); 
+  font-weight: 700;
+}
+
+.stg { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+}
+
+.stc {
+  padding: 36px 28px; /* Reduced from 42px 32px */
+  border-right: 1px solid var(--b2); 
+  border-bottom: 1px solid var(--b2);
+}
+
+.stc:nth-child(even) { border-right: none; }
+.stc:nth-last-child(-n+2) { border-bottom: none; }
+
+.stv {
+  font-weight: 600;
+  font-size: 2.8rem; /* Reduced from 3.2rem */
+  line-height: 1; 
+  margin-bottom: 10px;
+}
+
+.stv.in { color: var(--indigo); }
+.stv.b  { color: #1a4a8a; }
+.stv.gd { color: var(--gold2); }
+
+.stk {
+  font-size: .72rem; /* Reduced from .82rem */
+  letter-spacing: .2em; 
+  text-transform: uppercase; 
+  color: var(--t3);
+  font-weight: 600;
+}
+
+@media(max-width: 1200px) { .ag { gap: 60px; } }
+@media(max-width: 1060px) { .ag { grid-template-columns: 1fr; gap: 40px; } }
+@media(max-width: 600px) { 
+  .ag { margin-top: 30px; }
+  .stg { grid-template-columns: 1fr; } 
+  .stc { border-right: none; padding: 24px 20px; } 
+  .stc:nth-last-child(2) { border-bottom: 1px solid var(--b2); } 
+  .stv { font-size: 2.2rem; }
+  .stk { font-size: 0.65rem; }
+}

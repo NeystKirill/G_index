@@ -1,0 +1,312 @@
+/* ─── Hero ───────────────────────────────────────────────────────────── */
+.hw {
+  position: relative; z-index: 1;
+  padding-top: 80px;
+  padding-top: 60px;
+  min-height: 90vh;
+  display: flex; flex-direction: column;
+}
+
+/* ── Meta bar ── */
+.h-meta {
+  border-bottom: 1px solid var(--b1);
+  opacity: 0; animation: rs .6s .1s forwards;
+}
+.h-meta-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 48px;
+}
+.h-meta-tag {
+  font-size: .5rem; letter-spacing: .32em; text-transform: uppercase;
+  color: var(--t4); font-weight: 500;
+}
+
+/* ── Shimmer overline ── */
+.hov { display: flex; align-items: center; gap: 12px; }
+.hol {
+  height: 2px; width: 48px; flex-shrink: 0;
+  position: relative; overflow: hidden;
+  background: rgba(168,131,42,.12);
+}
+.hol-beam {
+  position: absolute; top: 0; bottom: 0; width: 130%;
+  background: linear-gradient(90deg,
+    transparent 0%, var(--gold2) 20%, var(--gold4) 50%, var(--gold2) 80%, transparent 100%);
+  animation: hol-shimmer 2.2s ease-in-out infinite;
+}
+@keyframes hol-shimmer { 0% { left: -130%; } 100% { left: 100%; } }
+.hot {
+  font-size: .6rem; letter-spacing: .44em; text-transform: uppercase;
+  color: var(--gold2); font-weight: 700;
+  text-shadow: 0 0 16px rgba(168,131,42,.22);
+}
+
+/* ── Main split layout ── */
+.h-split {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  max-width: 1380px; margin: 0 auto; width: 100%;
+  padding: 0 60px;
+  align-items: center;
+  gap: 60px;
+  padding-top: 40px; padding-bottom: 40px;
+}
+
+/* ── Left: logo visual ── */
+.h-left {
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; animation: rs .9s .3s forwards;
+}
+.h-logo-wrap {
+  position: relative;
+  width: clamp(300px, 38vw, 500px);
+  aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* FMG corner marks */
+.h-corner {
+  position: absolute;
+  font-size: 1.6rem; letter-spacing: .2em;
+  color: var(--gold2); font-weight: 500; opacity: .6;
+}
+.h-corner--tl { top: 4px; left: 8px; }
+.h-corner--br { bottom: 4px; right: 8px; }
+
+/* ── Gradient spinning rings ── */
+.h-ring-track {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.h-ring-track--1 {
+  inset: 0;
+  animation: ring-spin 12s linear infinite;
+}
+.h-ring-track--2 {
+  inset: 28px;
+  animation: ring-spin 20s linear reverse infinite;
+}
+@keyframes ring-spin { to { transform: rotate(360deg); } }
+
+/* The gradient beam — sits on the ring track as a conic border */
+.h-ring-beam {
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  /* conic gradient simulates a sweeping light on the ring */
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 200deg,
+    rgba(168,131,42,.12) 240deg,
+    rgba(212,176,80,.55) 280deg,
+    rgba(237,208,122,.9) 300deg,
+    rgba(212,176,80,.55) 320deg,
+    rgba(168,131,42,.12) 355deg,
+    transparent 360deg
+  );
+  /* mask to only show the ring edge — not the fill */
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 1.5px),
+    black calc(100% - 1.5px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 1.5px),
+    black calc(100% - 1.5px)
+  );
+}
+.h-ring-beam--2 {
+  background: conic-gradient(
+    from 90deg,
+    transparent 0deg,
+    transparent 210deg,
+    rgba(168,131,42,.08) 250deg,
+    rgba(212,176,80,.35) 285deg,
+    rgba(168,131,42,.08) 320deg,
+    transparent 360deg
+  );
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 1px),
+    black calc(100% - 1px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 1px),
+    black calc(100% - 1px)
+  );
+}
+
+/* ── Logo — minimal, no circle background ── */
+.h-logo-circle {
+  position: relative; z-index: 2;
+  width: 60%; aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.h-logo {
+  width: 88%; height: auto;
+  filter: drop-shadow(0 6px 24px rgba(12,27,51,.13));
+  animation: logo-float 7s ease-in-out infinite;
+}
+@keyframes logo-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ── Right: stacked wordmark ── */
+.h-right {
+  display: flex; flex-direction: column; justify-content: center;
+  opacity: 0; animation: rs .9s .45s forwards;
+}
+
+/* G-Index — Bebas Neue, massive, indigo */
+.ht-g {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 9vw, 10rem);
+  font-weight: 400;
+  font-style: normal;
+  line-height: .9;
+  color: var(--indigo);
+  letter-spacing: .02em;
+}
+
+
+/* Hub / Kazakhstan — above divider */
+.ht-sub { display: flex; flex-direction: column; gap: 2px; margin-bottom: 0; }
+.ht-hub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 4.2rem);
+  font-weight: 300; line-height: 1;
+  color: var(--navy); letter-spacing: .06em;
+  font-style: normal;
+}
+.ht-kz {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400; font-style: italic;
+  font-size: clamp(.8rem, 1.2vw, 1.1rem);
+  letter-spacing: .52em;
+  text-transform: uppercase; color: var(--t3);
+}
+
+/* Ornament divider — AFTER Hub Kazakhstan, BEFORE description */
+.ht-divider {
+  display: flex; align-items: center; gap: 10px;
+  margin: 20px 0 28px;
+}
+.ht-div-line {
+  flex: 1; max-width: 48px; height: 1px;
+  background: linear-gradient(90deg, var(--gold2), transparent);
+}
+.ht-div-line:last-child {
+  background: linear-gradient(270deg, var(--gold2), transparent);
+}
+.ht-div-orn {
+  width: 20px; height: 20px; opacity: .8;
+  filter: drop-shadow(0 0 4px rgba(212,176,80,.3));
+}
+.hd {
+  font-size: .96rem; line-height: 1.88;
+  color: var(--t2); max-width: 440px;
+  margin-bottom: 36px; font-weight: 400;
+}
+
+/* Buttons */
+.hbtns { display: flex; gap: 12px; flex-wrap: wrap; }
+.bp {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-size: .6rem; letter-spacing: .22em; text-transform: uppercase;
+  padding: 15px 36px; font-weight: 600; cursor: pointer;
+  text-decoration: none; display: inline-block;
+  background: var(--navy); color: #fff; border: 1px solid var(--navy);
+  transition: background .25s, transform .2s;
+}
+.bp:hover { background: var(--navy2); transform: translateY(-2px); }
+.bo {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-size: .6rem; letter-spacing: .22em; text-transform: uppercase;
+  padding: 14px 34px; font-weight: 600; cursor: pointer;
+  text-decoration: none; display: inline-block;
+  background: transparent; color: var(--gold);
+  border: 1px solid var(--gold-ln2);
+  transition: background .25s, transform .2s;
+}
+.bo:hover { background: var(--gold-lt); transform: translateY(-2px); }
+
+/* ── Video CTA strip at bottom ── */
+.h-video-cta {
+  background: rgba(255,255,255,.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--b1);
+  padding: 18px 60px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  transition: background .3s;
+  margin-top: auto;
+  position: relative;
+  z-index: 10;
+  transform: translateY(30px);
+}
+.h-video-cta:hover { background: rgba(255,255,255,.55); }
+
+@media(max-width: 600px) {
+  .hbtns { flex-direction: column; width: 100%; gap: 10px; }
+  .bp, .bo { width: 100%; text-align: center; padding: 12px 20px; font-size: 0.65rem; }
+  .h-video-cta { flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px; }
+  .h-vcta-arrow { display: none; }
+}
+
+.h-vcta-play {
+  width: 44px; height: 44px;
+  border: 1px solid var(--gold-ln2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold2); flex-shrink: 0;
+  background: var(--gold-lt);
+  transition: background .22s, transform .22s;
+}
+.h-video-cta:hover .h-vcta-play {
+  background: var(--gold-ln);
+  transform: scale(1.08);
+}
+.h-vcta-play svg { width: 14px; height: 14px; padding-left: 2px; }
+
+.h-vcta-info { display: flex; flex-direction: column; gap: 2px; }
+.h-vcta-label {
+  font-size: .72rem; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--navy);
+}
+.h-vcta-sub {
+  font-size: .72rem; color: var(--t3);
+}
+
+.h-vcta-arrow {
+  margin-left: auto; color: var(--gold2);
+  transition: transform .3s;
+}
+.h-vcta-arrow svg { width: 14px; height: 22px; }
+.h-video-cta:hover .h-vcta-arrow { transform: translateY(4px); }
+
+/* ── Responsive ── */
+@media(max-width: 1060px) {
+  .h-split { grid-template-columns: 1fr; gap: 40px; padding: 32px 28px; }
+  .h-meta-inner { padding: 0 28px; }
+  .h-video-cta { padding: 18px 28px; }
+  .h-logo-wrap { width: 220px; }
+  .ht-g { font-size: clamp(4rem, 14vw, 6rem); }
+}
+@media(max-width: 600px) {
+  .h-left { display: none; }
+  .h-split { padding: 20px 20px 40px; gap: 30px; }
+  .ht-g { font-size: 3.5rem; }
+  .ht-hub { font-size: 1.8rem; }
+  .ht-kz { font-size: 0.7rem; letter-spacing: 0.3em; }
+  .hd { font-size: 0.9rem; line-height: 1.7; margin-bottom: 24px; }
+  .h-meta-inner { height: auto; padding: 10px 20px; flex-direction: column; gap: 8px; align-items: flex-start; }
+}
