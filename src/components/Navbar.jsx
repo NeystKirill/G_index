@@ -62,28 +62,29 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="nv-right">
-          <div className="nbadge">
-            <div className="dot"></div>
-            {NAV_BADGE}
+        <div className="nv-actions">
+          <div className="nv-right">
+            <div className="nbadge">
+              <div className="dot"></div>
+              {NAV_BADGE}
+            </div>
+            <button className="lang-toggle" onClick={toggleLang} aria-label="Switch language">
+              <span className={lang === 'ru' ? 'lt-active' : ''}>RU</span>
+              <span className="lt-sep">|</span>
+              <span className={lang === 'en' ? 'lt-active' : ''}>EN</span>
+            </button>
           </div>
-          <button className="lang-toggle" onClick={toggleLang} aria-label="Switch language">
-            <span className={lang === 'ru' ? 'lt-active' : ''}>RU</span>
-            <span className="lt-sep">|</span>
-            <span className={lang === 'en' ? 'lt-active' : ''}>EN</span>
+
+          <button
+            className="hamb"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Menu"
+          >
+            <div className="hamb-line"></div>
+            <div className="hamb-line"></div>
+            <div className="hamb-line"></div>
           </button>
         </div>
-
-        {/* Hamburger Button */}
-        <button
-          className="hamb"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle Menu"
-        >
-          <div className="hamb-line"></div>
-          <div className="hamb-line"></div>
-          <div className="hamb-line"></div>
-        </button>
       </div>
 
       {/* Mobile Drawer */}

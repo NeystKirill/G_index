@@ -109,9 +109,10 @@ nav.scrolled {
 
 @media(max-width: 1060px) {
   .nl { display: none; }
-  .nv { padding-left: 28px; padding-right: 28px; justify-content: space-between; gap: 20px; }
+  .nv { padding-left: 20px; padding-right: 20px; justify-content: space-between; gap: 12px; }
   .nbadge { display: none; }
-  .hamb { display: flex; }
+  .nv-actions { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+  .hamb { display: flex !important; visibility: visible !important; opacity: 1 !important; flex-shrink: 0; }
 }
 
 @media(max-width: 600px) {
@@ -261,6 +262,12 @@ nav.scrolled {
   opacity: 1;
 }
 
+/* ── Navigation Actions (Wrapper for Lang + Hamb) ── */
+.nv-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
 /* ── Right side wrapper (badge + lang toggle) ── */
 .nv-right {
   display: flex;
@@ -311,7 +318,11 @@ nav.scrolled {
 }
 
 @media(max-width: 1060px) {
-  .nv-right { display: none; }
+  .nv-right { display: flex; gap: 8px; }
+  .lang-toggle { 
+    padding: 6px 10px; 
+    font-size: .52rem;
+  }
 }
 @media(min-width: 1061px) {
   .hamb { display: none !important; }
