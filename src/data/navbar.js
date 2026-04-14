@@ -14,8 +14,9 @@ const RU = {
     { href: '#technology',    label: 'Архитектура' },
     { href: '#status',        label: 'Карта' },
     { href: '#contact',       label: 'Контакты' },
+    { href: '/press-release',  label: 'Пресс-релиз' },
   ],
-  NAV_BADGE: 'Разработка · 2026',
+  NAV_BADGE: '',
 };
 
 const EN = {
@@ -32,8 +33,9 @@ const EN = {
     { href: '#technology',    label: 'Architecture' },
     { href: '#status',        label: 'Roadmap' },
     { href: '#contact',       label: 'Contact' },
+    { href: '/press-release',  label: 'Press Release' },
   ],
-  NAV_BADGE: 'In Development · 2026',
+  NAV_BADGE: '',
 };
 
 export function useNavData() {

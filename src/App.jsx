@@ -54,23 +54,12 @@ const SECTION_LABELS = {
   ],
 };
 
-function AppInner() {
-  useScrollReveal();
-  const [loading, setLoading] = useState(true);
-  const { lang } = useLang();
-  const labels = SECTION_LABELS[lang];
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import PressRelease from './components/PressRelease';
 
-  useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 2400);
-    return () => clearTimeout(t);
-  }, []);
-
+function Home({ labels }) {
   return (
     <>
-      <DeepBackground />
-      {loading && <Preloader />}
-      <div className="gold-rule"></div>
-      <Navbar />
       <Hero />
       <VideoSection />
 
@@ -109,6 +98,32 @@ function AppInner() {
 
       <SectionDivider num={labels[11].num} label={labels[11].label} />
       <Contact />
+    </>
+  );
+}
+
+function AppInner() {
+  useScrollReveal();
+  const [loading, setLoading] = useState(true);
+  const { lang } = useLang();
+  const labels = SECTION_LABELS[lang];
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 2400);
+    return () => clearTimeout(t);
+  }, []);
+
+  return (
+    <>
+      <DeepBackground />
+      {loading && <Preloader />}
+      <div className="gold-rule"></div>
+      <Navbar />
+      
+      <Routes>
+        <Route path="/" element={<Home labels={labels} />} />
+        <Route path="/press-release" element={<PressRelease />} />
+      </Routes>
 
       <Footer />
     </>
@@ -118,7 +133,9 @@ function AppInner() {
 export default function App() {
   return (
     <LanguageProvider>
-      <AppInner />
+      <Router>
+        <AppInner />
+      </Router>
     </LanguageProvider>
   );
 }
